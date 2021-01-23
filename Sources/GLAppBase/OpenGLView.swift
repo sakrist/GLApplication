@@ -32,6 +32,8 @@ import Cocoa
 import AppKit
 import GLKit
 
+import SwiftMath
+
 class OpenGLView: NSOpenGLView {
 
     private var trackingArea: NSTrackingArea?
