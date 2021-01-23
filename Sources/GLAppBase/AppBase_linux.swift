@@ -14,7 +14,9 @@ import CX11.Xlib
     
 import COpenGL.gl
 import COpenGL.glx
-    
+
+import SwiftMath
+
 open class GLAppBase: AppDelegate, MouseEventDelegate {
     
     open var renderObject: RenderObject?

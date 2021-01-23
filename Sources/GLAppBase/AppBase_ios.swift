@@ -11,6 +11,7 @@ import Darwin.C
 import Foundation
 import UIKit
 import GLKit
+import SwiftMath
 
 open class GLAppBase: UIResponder, UIApplicationDelegate, AppDelegate, GLKViewDelegate, MouseEventDelegate {
     

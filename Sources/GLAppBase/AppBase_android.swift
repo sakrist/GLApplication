@@ -9,6 +9,7 @@
 #if os(Android)
 import Foundation
 
+import SwiftMath
 
 open class GLAppBase {
     public var renderObject: RenderObject?
