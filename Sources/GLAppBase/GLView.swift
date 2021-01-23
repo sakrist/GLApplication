@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import GLKit
 
+import SwiftMath
+
 open class GLView : GLKView {
     
     var application:GLAppBase?

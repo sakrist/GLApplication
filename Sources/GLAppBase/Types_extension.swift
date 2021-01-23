@@ -10,11 +10,11 @@ import SwiftMath
 
 public extension Vector2f {
     
-    public init(_ x:Int32, _ y:Int32) {
+    init(_ x:Int32, _ y:Int32) {
         self.init(Float(x), Float(y))
     }
     
-    public init(_ x:Double, _ y:Double) {
+    init(_ x:Double, _ y:Double) {
         self.init(Float(x), Float(y))
     }
 }
