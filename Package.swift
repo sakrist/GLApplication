@@ -27,3 +27,7 @@ let package = Package(
             dependencies: ["GLAppBase"]),
     ]
 )
+
+#if os(Android) || os(Linux)
+package.targets[0].swiftSettings = [.define("NOSIMD")]
+#endif
