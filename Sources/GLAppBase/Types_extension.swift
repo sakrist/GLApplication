@@ -8,7 +8,7 @@
 
 import SwiftMath
 
-extension Vector2f {
+public extension Vector2f {
     
     public init(_ x:Int32, _ y:Int32) {
         self.init(Float(x), Float(y))
