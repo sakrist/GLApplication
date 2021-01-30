@@ -31,3 +31,9 @@ let package = Package(
 #if os(Android) || os(Linux)
 package.targets[0].swiftSettings = [.define("NOSIMD")]
 #endif
+
+#if os(Linux)
+package.dependencies.append(.package(url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.6"))
+package.dependencies.append(.package(url: "https://github.com/sakrist/CX11.swift.git", from:"1.0.4"))
+package.targets[0].dependencies += [ "COpenGL", "CX11" ]
+#endif
