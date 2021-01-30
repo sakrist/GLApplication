@@ -30,7 +30,7 @@ open class GLAppBase: AppDelegate, MouseEventDelegate {
     var visInfo:UnsafeMutablePointer<XVisualInfo>!
     var glContext:GLXContext!
     
-    var frame:Rect = Rect(0.0, 0.0, 640, 480)
+    var frame:Rect = Rect(0, 0, 640, 480)
 
     var buttonDownFlag:Int = 0
 
