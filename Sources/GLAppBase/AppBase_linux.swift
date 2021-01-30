@@ -30,7 +30,7 @@ open class GLAppBase: AppDelegate, MouseEventDelegate {
     var visInfo:UnsafeMutablePointer<XVisualInfo>!
     var glContext:GLXContext!
     
-    var frame:Rect = Rect(0, 0, 640, 480)
+    var frame:Rect = Rect(origin: .zero, size: Size(640, 480))
 
     var buttonDownFlag:Int = 0
 
@@ -99,10 +99,11 @@ open class GLAppBase: AppDelegate, MouseEventDelegate {
                 // The window has to be drawn
             case Expose:
                 XGetWindowAttributes(display, window, gwa)
-                let width = Double(gwa.pointee.width)
-                let height = Double(gwa.pointee.height)
-                if frame.size.width != width || frame.size.height != height {
-                    frame.size = Size(width, height)
+                let width = Float(gwa.pointee.width)
+                let height = Float(gwa.pointee.height)
+                let newSize = Size(width, height)
+                if frame.size != newSize {
+                    frame.size = newSize
                     self.windowDidResize(frame.size)
                     glViewport(0, 0, gwa.pointee.width, gwa.pointee.height)
                 }
