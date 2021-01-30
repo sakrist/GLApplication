@@ -33,7 +33,7 @@ package.targets[0].swiftSettings = [.define("NOSIMD")]
 #endif
 
 #if os(Linux)
-package.dependencies.append(.package(url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.7"))
-package.dependencies.append(.package(url: "https://github.com/sakrist/CX11.swift.git", from:"1.0.5"))
+package.dependencies.append(.package(name: "COpenGL", url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.7"))
+package.dependencies.append(.package(name: "CX11", url: "https://github.com/sakrist/CX11.swift.git", from:"1.0.5"))
 package.targets[0].dependencies += [ "COpenGL", "CX11" ]
 #endif
