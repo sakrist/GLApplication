@@ -3,5 +3,6 @@ import XCTest
 import GLAppBaseTests
 
 var tests = [XCTestCaseEntry]()
-tests += GLAppBaseTests.allTests()
+tests += GLAppBaseTests.__allTests()
+
 XCTMain(tests)
