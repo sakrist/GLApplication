@@ -7,7 +7,7 @@ final class GLAppBaseTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         
-        _ app = GLAppBase.init()
+        _ = GLAppBase.init()
         
 //        XCTAssertEqual(GLAppBase().text, "Hello, World!")
     }
