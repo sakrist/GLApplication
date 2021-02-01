@@ -15,6 +15,9 @@ jobs:
     runs-on: ${{matrix.os}}
 
     steps:
+    - name: Install Mesa
+      if: runner.os == 'Linux'
+      run: sudo apt-get install libx11-dev libglu1-mesa-dev mesa-common-dev
     - name: Install Swift
       if: runner.os == 'Linux'
       uses: sersoft-gmbh/SwiftyActions@v1
