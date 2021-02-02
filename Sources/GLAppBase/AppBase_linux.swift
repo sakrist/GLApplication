@@ -37,7 +37,18 @@ open class GLAppBase: AppDelegate, MouseEventDelegate {
     public init() {
 
         self.display = XOpenDisplay(nil)
+        // TODO: assert
+        if (display == nil) {
+            print("failed to create Display")
+            return
+        }
+        
         self.screen = XDefaultScreenOfDisplay(display)
+        // TODO: assert
+        if (screen == nil) {
+            print("failed to create screen")
+            return
+        }
         self.rootWindow = screen.pointee.root
 
         let att = UnsafeMutablePointer<Int32>.allocate(capacity:5)
