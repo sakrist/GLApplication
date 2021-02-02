@@ -19,7 +19,9 @@ open class GLAppBase: NSObject, NSApplicationDelegate, NSWindowDelegate, AppDele
     var glView: OpenGLView!
     public var renderObject: RenderObject? {
         didSet {
-            glView.renderObject = self.renderObject
+            if (glView != nil) {
+                glView.renderObject = self.renderObject
+            }
         }
     }
     
