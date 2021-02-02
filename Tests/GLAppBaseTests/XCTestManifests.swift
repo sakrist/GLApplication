@@ -7,6 +7,7 @@ extension GLAppBaseTests {
     // to regenerate.
     static let __allTests__GLAppBaseTests = [
         ("testCreateApp", testCreateApp),
+        ("testCreateAppSetRenderObject", testCreateAppSetRenderObject),
     ]
 }
 
