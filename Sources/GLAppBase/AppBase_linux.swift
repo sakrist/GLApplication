@@ -9,11 +9,8 @@
 
 #if os(Linux)
 import Glibc
-import CX11.X
-import CX11.Xlib
-    
-import COpenGL.gl
-import COpenGL.glx
+import X11
+import OpenGL
 
 import SwiftMath
 

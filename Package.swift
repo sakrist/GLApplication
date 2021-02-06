@@ -40,16 +40,18 @@ package.targets[0].swiftSettings = [.define("NOSIMD")]
 //    .apt([, "libglu1-mesa-dev", "mesa-common-dev"])
 //]
 
-package.dependencies += [
+package.targets += [
     .systemLibrary(name: "X11",
                    path: "Modules/x11",
                    pkgConfig: "x11",
-                   providers: [.apt("libx11-dev")]),
+                   providers: [.apt(["libx11-dev"])]),
     .systemLibrary(name: "OpenGL",
                    path: "Modules/OpenGL",
-                   pkgConfig: "glu1-mesa",
-                   providers: [.apt("libglu1-mesa-dev"), .apt("mesa-common-dev")]),
+                   pkgConfig: "gl",
+                   providers: [.apt(["libglu1-mesa-dev", "mesa-common-dev"])]),
 ]
+
+package.targets[0].dependencies += [ "OpenGL", "X11" ]
 
 //#else 
 //package.dependencies.append(.package(name: "COpenGL", url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.7"))
