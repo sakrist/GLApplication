@@ -1,12 +1,11 @@
 //
-//  GLAppBase.swift
-//  OpenGL_example
+//  Application_macOS.swift
 //
 //  Created by Volodymyr Boichentsov on 29/12/2015.
 //
 //
 
-#if os(OSX)
+#if os(macOS)
     
 import Darwin.C
 import Foundation
@@ -14,7 +13,7 @@ import AppKit
 import Cocoa
 import SwiftMath
 
-open class GLAppBase: NSObject, NSApplicationDelegate, NSWindowDelegate, AppDelegate, MouseEventDelegate {
+open class Application: NSObject, NSApplicationDelegate, NSWindowDelegate, AppDelegate, MouseEventDelegate {
     var window: NSWindow!
     var glView: OpenGLView!
     public var renderObject: RenderObject? {

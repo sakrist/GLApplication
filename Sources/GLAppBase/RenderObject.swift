@@ -1,6 +1,5 @@
 //
 //  RenderObject.swift
-//  OpenGL_example
 //
 //  Created by Volodymyr Boichentsov on 29/12/2015.
 //

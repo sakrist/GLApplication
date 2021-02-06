@@ -1,6 +1,5 @@
 //
 //  GLView.swift
-//  iOSApp
 //
 //  Created by Volodymyr Boichentsov on 30/12/2017.
 //

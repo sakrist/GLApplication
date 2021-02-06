@@ -14,7 +14,7 @@ final class GLAppBaseTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         
-        let app = GLAppBase.init()
+        let app = Application.init()
         XCTAssert((app.renderObject == nil))
     }
     
@@ -23,7 +23,7 @@ final class GLAppBaseTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         
-        let app = GLAppBase.init()
+        let app = Application.init()
         app.renderObject = MockRenderObject()
         XCTAssert((app.renderObject != nil))
     }

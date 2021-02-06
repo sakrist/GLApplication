@@ -1,6 +1,5 @@
 //
-//  GLAppBase.swift
-//  OpenGL_example
+//  Application_Android.swift
 //
 //  Created by Volodymyr Boichentsov on 29/12/2015.
 //
@@ -11,7 +10,7 @@ import Foundation
 
 import SwiftMath
 
-open class GLAppBase {
+open class Application {
     public var renderObject: RenderObject?
     
     public init() { }

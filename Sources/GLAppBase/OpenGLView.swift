@@ -27,7 +27,7 @@
  */
 
 
-#if os(OSX)
+#if os(macOS)
 import Cocoa
 import AppKit
 import GLKit
@@ -40,7 +40,7 @@ class OpenGLView: NSOpenGLView {
     
     var renderObject:RenderObject?
     
-    var application:GLAppBase?
+    var application:Application?
 
     override var isFlipped:Bool {
         get {

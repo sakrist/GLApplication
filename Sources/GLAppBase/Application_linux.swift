@@ -1,6 +1,5 @@
 //
-//  GLAppBase.swift
-//  OpenGL_example
+//  Application_linux.swift
 //
 //  Created by Volodymyr Boichentsov on 29/12/2015.
 //
@@ -14,7 +13,7 @@ import OpenGL
 
 import SwiftMath
 
-open class GLAppBase: AppDelegate, MouseEventDelegate {
+open class Application: AppDelegate, MouseEventDelegate {
     
     open var renderObject: RenderObject?
     
