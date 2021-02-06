@@ -1,19 +1,18 @@
 //
-//  GLAppBase.swift
-//  OpenGL_example
+//  Application_iOS.swift
 //
 //  Created by Volodymyr Boichentsov on 29/12/2015.
 //
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import Darwin.C
 import Foundation
 import UIKit
 import GLKit
 import SwiftMath
 
-open class GLAppBase: UIResponder, UIApplicationDelegate, AppDelegate, GLKViewDelegate, MouseEventDelegate {
+open class Application: UIResponder, UIApplicationDelegate, AppDelegate, GLKViewDelegate, MouseEventDelegate {
     
     public var window: UIWindow?
     public var glview: GLView?

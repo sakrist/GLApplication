@@ -1,6 +1,5 @@
 //
 //  GLView.swift
-//  iOSApp
 //
 //  Created by Volodymyr Boichentsov on 30/12/2017.
 //
@@ -14,7 +13,7 @@ import SwiftMath
 
 open class GLView : GLKView {
     
-    var application:GLAppBase?
+    var application:GLApplication?
     var _context:EAGLContext?
     
     override init(frame: CGRect) {

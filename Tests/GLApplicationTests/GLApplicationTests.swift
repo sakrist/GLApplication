@@ -1,5 +1,5 @@
 import XCTest
-@testable import GLAppBase
+@testable import GLApplication
 
 class MockRenderObject: RenderObject {
     func render() {
@@ -8,13 +8,13 @@ class MockRenderObject: RenderObject {
     
 }
 
-final class GLAppBaseTests: XCTestCase {
+final class GLApplicationTests: XCTestCase {
     func testCreateApp() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         
-        let app = GLAppBase.init()
+        let app = Application.init()
         XCTAssert((app.renderObject == nil))
     }
     
@@ -23,7 +23,7 @@ final class GLAppBaseTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         
-        let app = GLAppBase.init()
+        let app = Application.init()
         app.renderObject = MockRenderObject()
         XCTAssert((app.renderObject != nil))
     }

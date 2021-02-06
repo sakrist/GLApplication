@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "GLAppBase",
+    name: "GLApplication",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "GLAppBase",
-            targets: ["GLAppBase"]),
+            name: "GLApplication",
+            targets: ["GLApplication"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,11 +20,12 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "GLAppBase",
-            dependencies: [ "SwiftMath" ]),
+            name: "GLApplication",
+            dependencies: [ "SwiftMath" ],
+            cSettings: [.define("GL_GLEXT_PROTOTYPES")]),
         .testTarget(
-            name: "GLAppBaseTests",
-            dependencies: ["GLAppBase"]),
+            name: "GLApplicationTests",
+            dependencies: ["GLApplication"]),
     ]
 )
 
@@ -33,7 +34,16 @@ package.targets[0].swiftSettings = [.define("NOSIMD")]
 #endif
 
 #if os(Linux)
-package.dependencies.append(.package(name: "COpenGL", url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.7"))
-package.dependencies.append(.package(name: "CX11", url: "https://github.com/sakrist/CX11.swift.git", from:"1.0.5"))
-package.targets[0].dependencies += [ "COpenGL", "CX11" ]
+
+package.targets += [
+    .systemLibrary(name: "X11",
+                   pkgConfig: "x11",
+                   providers: [.apt(["libx11-dev"])]),
+    .systemLibrary(name: "OpenGL",
+                   pkgConfig: "gl",
+                   providers: [.apt(["libglu1-mesa-dev", "mesa-common-dev"])]),
+]
+
+package.targets[0].dependencies += [ "OpenGL", "X11" ]
+
 #endif

@@ -1,6 +1,5 @@
 //
-//  GLAppBase.swift
-//  OpenGL_example
+//  Application_linux.swift
 //
 //  Created by Volodymyr Boichentsov on 29/12/2015.
 //
@@ -9,15 +8,12 @@
 
 #if os(Linux)
 import Glibc
-import CX11.X
-import CX11.Xlib
-    
-import COpenGL.gl
-import COpenGL.glx
+import X11
+import OpenGL
 
 import SwiftMath
 
-open class GLAppBase: AppDelegate, MouseEventDelegate {
+open class Application: AppDelegate, MouseEventDelegate {
     
     open var renderObject: RenderObject?
     

@@ -1,0 +1,5 @@
+module OpenGL [system] {
+    umbrella header  "OpenGL-Bridging-Header.h"
+    link "GL"
+    export *
+}
