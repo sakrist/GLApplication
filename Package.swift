@@ -22,7 +22,8 @@ let package = Package(
         .target(
             name: "GLAppBase",
             dependencies: [ "SwiftMath" ],
-            cSettings: [.define("GL_GLEXT_PROTOTYPES")]),
+            cSettings: [.define("GL_GLEXT_PROTOTYPES"), 
+                        .define("XLIB_ILLEGAL_ACCESS")]),
         .testTarget(
             name: "GLAppBaseTests",
             dependencies: ["GLAppBase"]),
@@ -37,11 +38,9 @@ package.targets[0].swiftSettings = [.define("NOSIMD")]
 
 package.targets += [
     .systemLibrary(name: "X11",
-                   path: "Modules/x11",
                    pkgConfig: "x11",
                    providers: [.apt(["libx11-dev"])]),
     .systemLibrary(name: "OpenGL",
-                   path: "Modules/OpenGL",
                    pkgConfig: "gl",
                    providers: [.apt(["libglu1-mesa-dev", "mesa-common-dev"])]),
 ]
