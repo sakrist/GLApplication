@@ -33,7 +33,29 @@ package.targets[0].swiftSettings = [.define("NOSIMD")]
 #endif
 
 #if os(Linux)
-package.dependencies.append(.package(name: "COpenGL", url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.7"))
-package.dependencies.append(.package(name: "CX11", url: "https://github.com/sakrist/CX11.swift.git", from:"1.0.5"))
-package.targets[0].dependencies += [ "COpenGL", "CX11" ]
+
+
+//#if swift(>=5.2)
+//let providers: [SystemPackageProvider] = [
+//    .apt([, "libglu1-mesa-dev", "mesa-common-dev"])
+//]
+
+package.dependencies += [
+    .systemLibrary(name: "X11",
+                   path: "Modules/x11",
+                   pkgConfig: "x11",
+                   providers: [.apt("libx11-dev")]),
+    .systemLibrary(name: "OpenGL",
+                   path: "Modules/OpenGL",
+                   pkgConfig: "glu1-mesa",
+                   providers: [.apt("libglu1-mesa-dev"), .apt("mesa-common-dev")]),
+]
+
+//#else 
+//package.dependencies.append(.package(name: "COpenGL", url: "https://github.com/sakrist/COpenGL.swift.git", from:"1.0.7"))
+//package.dependencies.append(.package(name: "CX11", url: "https://github.com/sakrist/CX11.swift.git", from:"1.0.5"))
+//package.targets[0].dependencies += [ "COpenGL", "CX11" ]
+//
+//#endif
+//
 #endif
