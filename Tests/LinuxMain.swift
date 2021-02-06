@@ -1,8 +1,8 @@
 import XCTest
 
-import GLAppBaseTests
+import GLApplicationTests
 
 var tests = [XCTestCaseEntry]()
-tests += GLAppBaseTests.__allTests()
+tests += GLApplicationTests.__allTests()
 
 XCTMain(tests)
