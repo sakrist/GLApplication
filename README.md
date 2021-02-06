@@ -1,4 +1,4 @@
-# GLAppBase
+# GLApplication
 
 A description of this package.
 
