@@ -11,7 +11,7 @@ import Darwin.C
 import Foundation
 import AppKit
 import Cocoa
-import SwiftMath
+import SGLMath
 
 open class Application: NSObject, NSApplicationDelegate, NSWindowDelegate, AppDelegate, MouseEventDelegate {
     var window: NSWindow!

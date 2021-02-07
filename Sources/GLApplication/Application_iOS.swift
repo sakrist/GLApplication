@@ -10,7 +10,7 @@ import Darwin.C
 import Foundation
 import UIKit
 import GLKit
-import SwiftMath
+import SGLMath
 
 open class Application: UIResponder, UIApplicationDelegate, AppDelegate, GLKViewDelegate, MouseEventDelegate {
     

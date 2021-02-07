@@ -11,7 +11,7 @@ import Glibc
 import X11
 import OpenGL
 
-import SwiftMath
+import SGLMath
 
 open class Application: AppDelegate, MouseEventDelegate {
     

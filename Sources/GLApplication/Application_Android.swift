@@ -8,7 +8,7 @@
 #if os(Android)
 import Foundation
 
-import SwiftMath
+import SGLMath
 
 open class Application {
     public var renderObject: RenderObject?

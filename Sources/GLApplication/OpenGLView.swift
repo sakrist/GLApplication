@@ -32,7 +32,7 @@ import Cocoa
 import AppKit
 import GLKit
 
-import SwiftMath
+import SGLMath
 
 class OpenGLView: NSOpenGLView {
 

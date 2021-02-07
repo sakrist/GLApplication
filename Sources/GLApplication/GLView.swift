@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import GLKit
 
-import SwiftMath
+import SGLMath
 
 open class GLView : GLKView {
     

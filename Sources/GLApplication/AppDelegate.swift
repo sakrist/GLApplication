@@ -6,7 +6,7 @@
 //
 //
 
-import SwiftMath
+import SGLMath
 
 public protocol AppDelegate {
     var renderObject: RenderObject? { get set }
