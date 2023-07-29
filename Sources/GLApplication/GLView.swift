@@ -13,7 +13,7 @@ import SwiftMath
 
 open class GLView : GLKView {
     
-    var application:GLApplication?
+    var application:Application?
     var _context:EAGLContext?
     
     override init(frame: CGRect) {
