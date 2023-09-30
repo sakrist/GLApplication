@@ -3,7 +3,7 @@ import XCTest
 
 #if os(Windows)
 import Win.GL
-else
+#else
 import OpenGL
 #endif
 
