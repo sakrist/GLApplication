@@ -10,42 +10,31 @@ import SwiftWin32
 import Win.GL
 import SwiftMath
 
-open class Application: ApplicationDelegate, SceneDelegate {
+open class Application: ApplicationDelegate, SceneDelegate, AppDelegate {
     public var renderObject: RenderObject?
     var window: Window?
 
-    public required init() { }
-    
-    public func scene(_ scene: Scene, willConnectTo session: SceneSession,
-             options: Scene.ConnectionOptions) {
-        guard let windowScene = scene as? WindowScene else { return }
+     public required init() {
 
-        // Set the preferred window size and restrict resizing by setting the
-        // minimum and maximum to the same value.
-        let size = SwiftWin32.Size(width: 265, height: 530)
-        windowScene.sizeRestrictions?.minimumSize = size
-        windowScene.sizeRestrictions?.maximumSize = size
+     }
 
-        self.window = Window(windowScene: windowScene)
+    public func application(_ application: SwiftWin32.Application,
+                          didFinishLaunchingWithOptions options: [SwiftWin32.Application.LaunchOptionsKey:Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        self.window = SwiftWin32.Window(frame: Rect( x:100, y:100, width:600, height:400));
 
         window?.rootViewController = ViewController()
         window?.rootViewController?.title = "App"
-
-        applicationCreate()
+        window?.makeKeyAndVisible()
+        self.applicationCreate()
+        return true
     }
 
     open func run() { }
 
-    public func sceneDidBecomeActive(_: Scene) {
-        
-    }
-
-    public func sceneWillResignActive(_: Scene) {
-        
-    }
-
-    func applicationWillTerminate(_: Application) {
-        applicationClose()
+    public func applicationWillTerminate(_ application: SwiftWin32.Application) {
+        self.applicationClose()
     }
     
     open func applicationCreate() {}
