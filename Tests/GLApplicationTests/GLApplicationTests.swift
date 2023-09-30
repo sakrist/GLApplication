@@ -3,6 +3,8 @@ import XCTest
 
 #if os(Windows)
 import Win.GL
+else
+import OpenGL
 #endif
 
 class MockRenderObject: RenderObject {
