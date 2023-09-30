@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -45,5 +45,15 @@ package.targets += [
 ]
 
 package.targets[0].dependencies += [ "OpenGL", "X11" ]
+
+#endif
+
+#if os(Windows)
+
+package.targets += [
+    .systemLibrary(name: "WinGL"),
+]
+package.dependencies += [ .package(url: "https://github.com/compnerd/swift-win32", branch: "main") ]
+package.targets[0].dependencies += [ "WinGL", .product(name: "SwiftWin32", package: "swift-win32") ]
 
 #endif
