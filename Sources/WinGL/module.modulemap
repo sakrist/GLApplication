@@ -1,0 +1,13 @@
+module Win [system] {    
+    export *
+
+    module GL {
+      header "gl-umbrealla.h"
+      link "OpenGL32"
+      export *
+    }
+
+    link "opengl32"
+    link "glu32"
+}
+

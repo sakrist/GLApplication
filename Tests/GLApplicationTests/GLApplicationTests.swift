@@ -1,6 +1,10 @@
 import XCTest
 @testable import GLApplication
 
+#if os(Windows)
+import Win.GL
+#endif
+
 class MockRenderObject: RenderObject {
     func render() {
         
