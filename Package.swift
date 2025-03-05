@@ -1,7 +1,30 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+
+let shouldBuildForEmbedded =
+    Context.environment["JAVASCRIPTKIT_EXPERIMENTAL_EMBEDDED_WASM"].flatMap(Bool.init) ?? false
+
+
+let swiftSettings: [SwiftSetting] = shouldBuildForEmbedded ? [
+                .enableExperimentalFeature("Embedded"),
+                .define("NOSIMD"),
+                .unsafeFlags([
+                    "-Xfrontend", "-emit-empty-object-file",
+                ]),
+            ] : []
+
+let cSettings: [CSetting] = shouldBuildForEmbedded ? [ .unsafeFlags(["-fdeclspec"]) ] : []
+
+let dependencies: [Package.Dependency] = shouldBuildForEmbedded ? [
+    .package(path: "../emswiften"),
+    .package(url: "https://github.com/swiftwasm/swift-dlmalloc", from: "0.1.0"),
+    .package(url: "https://github.com/swiftwasm/JavaScriptKit", branch: "main"),] : []
+
+let targetDependencies: [Target.Dependency] = shouldBuildForEmbedded ? [
+    "emswiften", "JavaScriptKit", .product(name: "dlmalloc", package: "swift-dlmalloc")] : []
+
 
 let package = Package(
     name: "GLApplication",
@@ -11,22 +34,24 @@ let package = Package(
             name: "GLApplication",
             targets: ["GLApplication"]),
     ],
-    dependencies: [
+    dependencies: dependencies + [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/SwiftGFX/SwiftMath", from: "3.3.1")
+        .package(path: "../SwiftMath")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "GLApplication",
-            dependencies: [ "SwiftMath" ],
-            cSettings: [.define("GL_GLEXT_PROTOTYPES")]),
+            dependencies: targetDependencies + [ "SwiftMath" ],
+            cSettings: [.define("GL_GLEXT_PROTOTYPES")] + cSettings,
+            swiftSettings: swiftSettings),
         .testTarget(
             name: "GLApplicationTests",
             dependencies: ["GLApplication"]),
-    ]
+    ],
+    swiftLanguageModes: [.v5]
 )
 
 #if os(Android) || os(Linux)

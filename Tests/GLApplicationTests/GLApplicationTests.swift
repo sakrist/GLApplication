@@ -2,7 +2,7 @@ import XCTest
 @testable import GLApplication
 
 class MockRenderObject: RenderObject {
-    func render() {
+    override func render() {
         
     }
     
