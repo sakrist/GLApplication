@@ -5,6 +5,7 @@
 //
 //
 
-public protocol RenderObject {
-    func render()
+open class RenderObject {
+    public init() {}
+    open func render() {}
 }
